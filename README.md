@@ -1,0 +1,1 @@
+# data-platform-api-event-deletes-rmq-kube
