@@ -116,7 +116,7 @@ func (c *DPFMAPICaller) headerDelete(
 		return header, nil, nil
 	}
 
-	campaigns := c.CampaingsRead(input, log)
+	campaigns := c.CampaignsRead(input, log)
 	for i := range *campaigns {
 		(*campaigns)[i].IsMarkedForDeletion = input.Header.IsMarkedForDeletion
 		res, err := c.rmq.SessionKeepRequest(nil, c.conf.RMQ.QueueToSQL()[0], map[string]interface{}{"message": (*campaigns)[i], "function": "EventCampaign", "runtime_session_id": sessionID})
